@@ -1,59 +1,19 @@
 <?php
 
-function hello(){
-    var_dump('Hello');
-}
-
-hello();
-hello();
-hello();
-
-function helloName($name='Unknown'){
-    var_dump('Hello ' . $name);
-}
-
-helloName('Kaspar');
-helloName('Martin');
-helloName();
-
-function helloNameAndAge($name='Unknown', $age){
-    var_dump("Hello $name and you are $age years old");
-}
-
-helloNameAndAge('Kaspar', 32);
-helloNameAndAge('Martin', 5);
-
-function stuff(...$args) {
-    var_dump(...$args);
-}
-
-stuff(1, 2, 3, 4);
-stuff(1, 2, 3, 4, 5, 6, 7);
-
-function sum($a, $b){
-    return $a+$b;
-    var_dump('asdasdasddas');
-}
-
-$answer = sum(1,5);
-var_dump($answer);
-
-function biggerOrSmaller($a){
-    if($a > 10){
-        return 'Bigger';
+for($i=0; $i<10;$i++){
+    if($i==3){
+        continue;
     }
-    return 'Smaller';
-}
-
-var_dump(biggerOrSmaller(15));
-var_dump(biggerOrSmaller(5));
-
-
-function recursive($i) {
-    if($i<10){
-        var_dump($i);
-        recursive($i+1);
+    if($i == 5){
+        break;
     }
+    var_dump($i);
 }
 
-recursive(0);
+for($i=0;$i<10;$i++){
+    for($j=0;$j<10;$j++){
+        break 2;
+        var_dump($i, $j);
+    }
+    var_dump($i, $j);
+}
