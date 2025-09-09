@@ -1,19 +1,32 @@
 <?php
 
-for($i=0; $i<10;$i++){
-    if($i==3){
-        continue;
+class Box {
+    public $width;
+    public $heigth;
+    public $length;
+    
+    public function __construct($w=0, $h=0, $l=0)
+    {   
+        $this->width = $w;
+        $this->heigth = $h;
+        $this->length = $l;
     }
-    if($i == 5){
-        break;
+
+    public function volume(){
+        return $this->width * $this->heigth * $this->length;
     }
-    var_dump($i);
 }
 
-for($i=0;$i<10;$i++){
-    for($j=0;$j<10;$j++){
-        break 2;
-        var_dump($i, $j);
-    }
-    var_dump($i, $j);
-}
+$box1 = new Box(10, 10, 10);
+
+
+
+var_dump($box1);
+var_dump($box1->volume());
+
+$box2 = new Box(20, 20, 20);
+
+
+var_dump($box2);
+var_dump($box2->volume());
+var_dump($box1);
