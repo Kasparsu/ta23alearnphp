@@ -1,51 +1,17 @@
-<?php
+<?php include __DIR__ . '/partials/header.php'; ?>
 
-class Cat {
-    public function __construct()
-    {
-        var_dump('Class was created');
-    }
-    public function __call($name, $args) {
-        var_dump($name, $args);
-    }
 
-    public function __invoke($value)
-    {
-        var_dump($value);
-    }
+    <main class="container">
+      <?php include __DIR__ . '/partials/hero.php'; ?>
+      <?php include __DIR__ . '/partials/featured.php'; ?>
 
-    public function __get($name){
-        var_dump($name);
-        return 'Cool shiiit';
-    }
-
-    public function __set($name, $value){
-        var_dump($name, $value);
-       
-    }
-
-    public function __toString()
-    {
-        return 'Mjäu';
-    }
-
-    public function __destruct()
-    {
-        var_dump('Class was destroyed');
-    }
-}
-
-function makeCat(){
-    $cat = new Cat();
-}
-
-makeCat();
-$kitty = new Cat();
-var_dump($kitty);
-var_dump($kitty->mood);
-$kitty->color = 'Rainbow';
-$kitty->throwShit('many', 'smelly', 'poops', 1 , 2 , 3);
-$kitty('something');
-echo $kitty;
-$kitty = 1;
-var_dump('something');
+      <div class="row g-5">
+        <div class="col-md-8">
+            <?php include __DIR__ . '/partials/posts.php'; ?>
+        </div>
+        <div class="col-md-4">
+          <?php include __DIR__ . '/partials/sidebar.php'; ?>
+        </div>
+      </div>
+    </main>
+<?php include __DIR__ . '/partials/footer.php'; ?>
