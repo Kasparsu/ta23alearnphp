@@ -64,4 +64,14 @@ class PublicController
         ];
         view('us', compact('posts'));
     }
+
+    public function form(){
+        view('form');
+    }
+
+    public function answer(){
+        dump($_GET);
+        dump($_POST);
+    }
 }
+
