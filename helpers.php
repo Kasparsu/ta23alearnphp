@@ -2,16 +2,16 @@
 
 use App\Models\User;
 
-function dump(...$args) {
-    echo '<pre>';
-    var_dump(...$args);
-    echo '</pre>';
-}
+// function dump(...$args) {
+//     echo '<pre>';
+//     var_dump(...$args);
+//     echo '</pre>';
+// }
 
-function dd(...$args) {
-    dump(...$args);
-    die;
-}
+// function dd(...$args) {
+//     dump(...$args);
+//     die;
+// }
 
 function view($viewName, $variables=[]) {
     extract($variables);
