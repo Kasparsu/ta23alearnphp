@@ -8,6 +8,14 @@ use App\Models\User;
 
 class PostsController
 {
+    public function __construct()
+    {  
+       if(!auth()){
+        redirect('/login');
+        die;
+       } 
+    }
+
     public function index()
     {
        $posts = Post::all();
@@ -19,6 +27,16 @@ class PostsController
     }
 
     public function store() {
+        dd($_FILES, $_POST);
+        $from = $_FILES['image']['tmp_name'];
+        $ext = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+        do {
+            $name = md5($_FILES['image']['name'] . microtime() . rand(PHP_INT_MIN, PHP_INT_MAX)) . '.' . $ext;
+        } while(file_exists(__DIR__ . '/../../public/uploads/' . $name));
+        $to = __DIR__ . '/../../public/uploads/' . $name;
+        move_uploaded_file($from, $to);
+
+        dd($_FILES, $_POST);
         $post = new Post();
         $post->title = $_POST['title'];
         $post->body = $_POST['body'];
